@@ -16,8 +16,45 @@ properties: size and type.
 Create the class just below this problem. 
 This problem has no output.
 */
+class Pizza {
+     public $size;
+     public $type;
+     private $slices;
 
-  
+    public function set_size($size) {
+        $this->size = $size;
+
+        if ($size === 'small') {
+            $this->slices = 6;
+        } elseif ($size === 'medium') {
+            $this->slices = 8;
+        } else $this->slices = 10;
+    }
+
+    public function set_type($type) {
+        $this->type = $type;
+    }
+
+    public function get_size() {
+       return $this->size;
+    }
+
+    public function get_type() {
+       return $this->type;
+    }
+
+    public function serve() {
+        return "Here's your {$this->type} pizza!";
+    }
+
+    public function get_slices() {
+        return $this->slices;
+    }
+
+    public function description() {
+        return "My pizza is a {$this->size} {$this->type} and has {$this->slices} slices!";
+    }
+ }; 
 /* 02: Add set_size and set_type methods to the Pizza class 
 above. This problem has no output.
 */
@@ -30,19 +67,20 @@ above. This problem has no output.
 Create the $pizza object just below this problem. 
 This problem has no output.
 */
+$pizza = new Pizza();
 
 
 /* 05: Set the $pizza size to "medium". 
 You can do this just below this problem. 
 This problem has no output.
 */
-
+$pizza->set_size('medium');
   
 /* 06: Set the $pizza type to "Pepperoni". 
 You can do this just below this problem. 
 This problem has no output.
 */
-
+$pizza->set_type('Pepperoni');
 
 /* 06: Call the get_size method and output the
 returned value in appropriate HTML list item below. */
@@ -100,7 +138,9 @@ Call the description method for $myPizza
 and output the returned value in 
 appropriate HTML list item below.
 ?> */
-
+$myPizza = new Pizza();
+$myPizza->set_size('large');
+$myPizza->set_type('Supreme');
 
 ?>
 
@@ -129,11 +169,11 @@ appropriate HTML list item below.
         <button id="submitButton">Submit Your Assignment</button>
         <p>Your output should only be in the ordered list below.</p>
         <ol>
-            <li id="6"><?php /* #6 output here */ ?></li>
-            <li id="7"><?php /* #7 output here */ ?></li>
-            <li id="8"><?php /* #8 output here */ ?></li>
-            <li id="9"><?php /* #9 output here */ ?></li>
-            <li id="10"><?php /* #10 output here */ ?></li>
+            <li id="6"><?php echo $pizza->get_size(); ?></li>
+            <li id="7"><?php echo $pizza->get_type(); ?></li>
+            <li id="8"><?php echo $pizza->serve(); ?></li>
+            <li id="9"><?php echo $pizza->get_slices(); ?></li>
+            <li id="10"><?php echo $myPizza->description(); ?></li>
         </ol>
     </main>
 
